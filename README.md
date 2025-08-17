@@ -11,11 +11,11 @@ It is fully responsive.
 
 ### Aboutpage
 
-![Aboutuspage Screenshot](.\src\assets\Screenshots\AboutUs.png)
+![Aboutuspage Screenshot](./src/assets/Screenshots/AboutUs.png)
 
 ### Footer
 
-![Footerpage Screenshot](.\src\assets\Screenshots\Footer.png)
+![Footerpage Screenshot](./src/assets/Screenshots/Footer.png)
 
 ## Features
 
