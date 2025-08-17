@@ -7,7 +7,7 @@ It is fully responsive.
 
 ### Contactpage
 
-![Contactpage Screenshot](.\src\assets\Screenshots\Contact.png)
+![Contactpage Screenshot](./src/assets/Screenshots/Contact.png)
 
 ### Aboutpage
 
