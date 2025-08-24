@@ -11,7 +11,6 @@ import {
 } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Navbar from "./Navbar";
 import Searchlist from "../Global/Searchlist";
 
 const HomePage = () => {
@@ -90,9 +89,9 @@ const HomePage = () => {
                 style={{ backgroundImage: `url(${pkg.image})` }}
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <span className="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full shadow-md">
+                {/* <span className="absolute top-3 right-3 bg-orange-500 text-white px-3 py-1 rounded-full shadow-md">
                   ₹ {pkg.price}
-                </span>
+                </span> */}
                 <h2 className="absolute bottom-2 left-2 text-lg font-bold text-white drop-shadow">
                   {pkg.name}
                 </h2>

@@ -36,7 +36,8 @@ const Navbar = () => {
           <div className="hidden md:flex font-bold font-serif text-orange-600 justify-center gap-4">
             <Link to="/" className="hover:underline">Home</Link>
             <Link to="/aboutus" className="hover:underline">About us</Link>
-            <Link to="/tours" className="hover:underline">Our Packages</Link>
+            <Link to="/holy-places" className="hover:underline">Holy Places</Link>
+            <Link to="/adventure/" className="hover:underline">Adventure Places</Link>
             <Link to="/contact" className="hover:underline">Contact</Link>
           </div>
 

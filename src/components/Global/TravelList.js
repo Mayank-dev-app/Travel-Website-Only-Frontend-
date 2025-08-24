@@ -7,10 +7,13 @@ import abc2 from "../../assets/Images/abc2.jpg";
 export const samplePackages = [
   {
     id: 1,
-    name: "Varanasi Spiritual Tour",
+    name: "Varanasi (Kashi, Banaras)",
     duration: "3 Days / 2 Nights",
     price: 4999,
+    description:
+    " Known as the spiritual capital of India, Varanasi is one of the world’s oldest continuously inhabited cities. The Kashi Vishwanath Temple dedicated to Lord Shiva is the most important shrine here. The evening Ganga Aarti at Dashashwamedh Ghat is a divine spectacle. Visitors can also take boat rides on the Ganga River, explore ancient ghats, and witness centuries-old traditions",
     location: "Varanasi",
+    catagory: "Religious Places",
     services: ["Transport", "Accommodation", "Food", "Guide"],
     itinerary: [
       "Day 1: Arrival & Ganga Aarti",
@@ -25,6 +28,9 @@ export const samplePackages = [
     duration: "2 Days / 1 Night",
     price: 3999,
     location: "Varanasi",
+    description:
+    "Famed as the birthplace of Lord Rama, Ayodhya holds immense religious significance. The recently built Ram Mandir attracts millions of devotees worldwide. Other attractions include Hanuman Garhi, Kanak Bhawan, and the serene banks of the Sarayu River. The city is rich in Ramayana heritage and cultural legacy.",
+    catagory: "Religious Places",
     services: ["Transport", "Accommodation", "Guide"],
     itinerary: [
       "Day 1: Ram Janmabhoomi Temple Visit",
@@ -34,14 +40,15 @@ export const samplePackages = [
   },
   {
     id: 3,
-    name: "Mathura-Vrindavan Pilgrimage",
+    name: "Mathura-Vrindavan ",
     duration: "4 Days / 3 Nights",
     price: 5999,
     image: abc5,
+    catagory: "Religious Places",
     location: "Mathura & Vrindavan",
     services: ["Transport", "Accommodation", "Food", "Guide"],
     description:
-      "Experience the spiritual essence of Varanasi with guided temple visits, Ganga Aarti, and boat rides. Perfect for those seeking peace and cultural exploration.",
+      "Mathura, the birthplace of Lord Krishna, and Vrindavan, where he spent his childhood, are centers of devotion. Famous temples include Dwarkadhish Temple, ISKCON Temple, Banke Bihari Temple, and Prem Mandir. Festivals like Janmashtami and Holi are celebrated with great grandeur.",
     itinerary: [
       "Day 1: Krishna Janmabhoomi Temple",
       "Day 2: Banke Bihari Temple & Prem Mandir",
@@ -54,6 +61,7 @@ export const samplePackages = [
     name: "Prayagraj Sangam & Kumbh Experience",
     duration: "3 Days / 2 Nights",
     price: 5499,
+    catagory: "Religious Places",
     location: "Prayagraj",
     services: ["Transport", "Accommodation", "Food", "Guide"],
     itinerary: [
@@ -65,10 +73,13 @@ export const samplePackages = [
   },
   {
     id: 5,
-    name: "Haridwar-Rishikesh Ganga Tour",
+    name: "Prayagraj (Allahabad): ",
     duration: "5 Days / 4 Nights",
     price: 7499,
+    catagory: "Religious Places",
     location: "Varanasi",
+    description:
+     "A city of confluence, Prayagraj is home to Triveni Sangam, where rivers Ganga, Yamuna, and Saraswati meet. It hosts the world’s largest religious gathering – Kumbh Mela. The Akshayavat Tree and Anand Bhawan add historical and cultural depth to this holy city.",
     services: ["Transport", "Accommodation", "Food", "Guide"],
     itinerary: [
       "Day 1: Har Ki Pauri Ganga Aarti",
@@ -80,4 +91,3 @@ export const samplePackages = [
     image: abc3,
   },
 ];
-

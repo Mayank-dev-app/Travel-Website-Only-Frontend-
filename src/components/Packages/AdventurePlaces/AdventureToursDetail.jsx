@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 import { FaClock, FaMapMarkerAlt, FaCheckCircle } from "react-icons/fa";
-import { samplePackages } from "../Global/TravelList";
+import  AdventureTourspackages  from "../../Global/Advanture"
 import { useState } from "react";
 
-export default function TourDetails() {
-  const [tours ] = useState(samplePackages);
+export default function AdventureToursDetails() {
+  const [tours] = useState(AdventureTourspackages);
   const { id } = useParams();
   const tour = tours.find((t) => String(t.id) === id);
 
@@ -21,9 +21,9 @@ export default function TourDetails() {
         />
         <div className="absolute inset-0 bg-black/50 flex flex-col justify-end p-6 text-white">
           <h1 className="text-3xl sm:text-4xl font-bold">{tour.name}</h1>
-          <span className="text-lg bg-orange-500 px-3 py-1 rounded-full inline-block mt-2">
+          {/* <span className="text-lg bg-orange-500 px-3 py-1 rounded-full inline-block mt-2">
             ₹ {tour.price}
-          </span>
+          </span> */}
         </div>
       </div>
 
@@ -64,12 +64,6 @@ export default function TourDetails() {
         </ul>
       </div>
 
-      {/* Booking Button */}
-      <div className="mt-8">
-        <button className="px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full shadow-md hover:opacity-90">
-          Book Now
-        </button>
-      </div>
     </div>
   );
 }

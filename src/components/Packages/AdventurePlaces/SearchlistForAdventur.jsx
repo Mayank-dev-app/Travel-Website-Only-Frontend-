@@ -1,35 +1,23 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { HolyPlacespackage } from "./sampleData";
-import AdventureTourspackages from "./Advanture";
+import Adventure from "../../Global/Advanture"
 
-export default function Searchlist() {
+export default function AdventureSearch({ onSearch }) {
   const [search, setSearch] = useState("");
   const [suggestion, setSuggestion] = useState([]);
-  const navigate = useNavigate();
 
-  // ✅ Add category tags while merging
-  const holyData = HolyPlacespackage.map(item => ({
-    ...item,
-    category: "holy",
-  }));
-  const adventureData = AdventureTourspackages.map(item => ({
-    ...item,
-    category: "adventure",
-  }));
-  const combinedData = [...holyData, ...adventureData];
-
-  // 🔹 Handle input change
   const handleSearch = (e) => {
     const value = e.target.value;
     setSearch(value);
+
+    // parent ko query bhejna
+    onSearch(value);
 
     if (value.trim() === "") {
       setSuggestion([]);
       return;
     }
 
-    const filtered = combinedData.filter(
+    const filtered = Adventure.filter(
       (item) =>
         item?.location &&
         item.location.toLowerCase().includes(value.toLowerCase())
@@ -38,20 +26,10 @@ export default function Searchlist() {
     setSuggestion(filtered);
   };
 
-  // 🔹 Handle click / enter
   const handleSearchClick = (item) => {
     setSearch(item.location);
     setSuggestion([]);
-
-    const category = item.category?.toLowerCase();
-
-    if (category === "holy") {
-      navigate("/holy-places/" + encodeURIComponent(item.location));
-    } else if (category === "adventure") {
-      navigate("/adventure/" + encodeURIComponent(item.location));
-    } else {
-      navigate("/holy-places/" + encodeURIComponent(item.location)); // fallback
-    }
+    onSearch(item.location); // 🔹 parent ko exact location bhej do
   };
 
   const handleKeyDown = (e) => {
@@ -64,16 +42,15 @@ export default function Searchlist() {
     <div className="relative w-full sm:w-72">
       <input
         type="text"
-        placeholder="Search tours..."
+        placeholder="Search holy places..."
         value={search}
         onChange={handleSearch}
         onKeyDown={handleKeyDown}
         className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-orange-500"
       />
 
-      {/* Suggestions dropdown */}
       {suggestion.length > 0 && (
-        <ul className="absolute left-0 right-0 bg-white shadow-lg rounded-lg mt-1 max-h-60 overflow-y-auto z-60">
+        <ul className="absolute left-0 right-0 bg-white shadow-lg rounded-lg mt-1 max-h-60 overflow-y-auto z-50">
           {suggestion.map((item, idx) => (
             <li
               key={idx}
@@ -81,9 +58,6 @@ export default function Searchlist() {
               className="px-3 py-2 hover:bg-orange-100 cursor-pointer flex justify-between"
             >
               <span className="text-black">{item.location}</span>
-              <span className="text-xs text-gray-500 italic">
-                {item.category}
-              </span>
             </li>
           ))}
         </ul>
