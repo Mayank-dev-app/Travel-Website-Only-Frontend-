@@ -5,6 +5,7 @@ It is fully responsive.
 
 # Live Demo
 https://tourdham.netlify.app/
+https://uptours.netlify.app/ #new version
 
 # Schrennshots
 
