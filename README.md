@@ -4,7 +4,7 @@ A Simple Travel Website Application where user can view travel places and book t
 It is fully responsive.
 
 # Live Demo
-https://tourdham.netlify.app/
+https://tourdham.netlify.app/       
 https://uptours.netlify.app/ #new version
 
 # Schrennshots
