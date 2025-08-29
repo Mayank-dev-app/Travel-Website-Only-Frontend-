@@ -129,9 +129,14 @@ export default function AdventureTours() {
                   </div>
 
                   {/* Button */}
-                  <button className="cursor-pointer mt-4 w-full py-2 rounded-lg font-semibold bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-md hover:opacity-90 text-sm sm:text-base">
-                    <Link to={`/adventure-details/${pkg.id}`}>See Details</Link>
-                  </button>
+                  <div className="w-full flex justify-center">
+                    <Link
+                      to={`/adventure-details/${pkg.id}`}
+                      className="w-full text-center cursor-pointer mt-7 py-2 px-6 rounded-full font-semibold bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-md hover:opacity-90"
+                    >
+                      See Details
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))

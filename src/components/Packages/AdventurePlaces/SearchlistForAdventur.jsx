@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Adventure from "../../Global/Advanture"
+import Adventure from "../../Global/Advanture";
 
 export default function AdventureSearch({ onSearch }) {
   const [search, setSearch] = useState("");
@@ -9,11 +9,9 @@ export default function AdventureSearch({ onSearch }) {
     const value = e.target.value;
     setSearch(value);
 
-    // parent ko query bhejna
-    onSearch(value);
-
     if (value.trim() === "") {
       setSuggestion([]);
+      onSearch(""); // 🔹 clear filters → show all
       return;
     }
 
@@ -29,12 +27,18 @@ export default function AdventureSearch({ onSearch }) {
   const handleSearchClick = (item) => {
     setSearch(item.location);
     setSuggestion([]);
-    onSearch(item.location); // 🔹 parent ko exact location bhej do
+    onSearch(item.location); // 🔹 filter by clicked suggestion
   };
 
   const handleKeyDown = (e) => {
-    if (e.key === "Enter" && suggestion.length > 0) {
-      handleSearchClick(suggestion[0]);
+    if (e.key === "Enter") {
+      if (search.trim() === "") {
+        onSearch(""); // 🔹 blank → clear filters
+      } else if (suggestion.length > 0) {
+        handleSearchClick(suggestion[0]); // 🔹 pick first suggestion
+      } else {
+        onSearch(search); // 🔹 filter whatever user typed
+      }
     }
   };
 
@@ -42,7 +46,7 @@ export default function AdventureSearch({ onSearch }) {
     <div className="relative w-full sm:w-72">
       <input
         type="text"
-        placeholder="Search holy places..."
+        placeholder="Search adventure tours..."
         value={search}
         onChange={handleSearch}
         onKeyDown={handleKeyDown}

@@ -50,8 +50,8 @@ export default function HolyPlaces() {
         backgroundAttachment: "fixed",
       }}
     >
-      <div className="absolute inset-0 bg-black/50 z-0"></div>
-      <div className="relative z-10 p-6 max-w-7xl mx-auto">
+      <div className=" absolute inset-0 bg-black/50 z-0"></div>
+      <div className="relative z-10 p-4 sm:p-6 lg:p-10">
 
         {/* Heading Section */}
         <div className="text-center mb-10">
@@ -68,7 +68,7 @@ export default function HolyPlaces() {
 
         {/* Filter + Search */}
         <div className="sticky top-20 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-lg mb-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 z-50">
-          <div className="flex flex-col sm:flex-row items-center gap-4 w-full">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 w-full">
             <div className="flex items-center gap-2 w-full sm:w-auto">
               <FiSliders className="text-orange-500 text-lg" />
               <FilterBar
@@ -81,12 +81,12 @@ export default function HolyPlaces() {
         </div>
 
         {/* Package Cards */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 z-20">
+        <div  className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filterTours.length > 0 ? (
             filterTours.map((pkg) => (
               <div
                 key={pkg.id}
-                className="rounded-xl overflow-hidden shadow-lg bg-white transform hover:scale-105 transition-all duration-300 relative z-20"
+               className="rounded-xl overflow-hidden shadow-lg bg-white transform hover:scale-105 transition-all duration-300"
               >
                 <div
                   className="h-48 bg-cover bg-center relative"
@@ -118,10 +118,14 @@ export default function HolyPlaces() {
                       </span>
                     ))}
                   </div>
-
-                  <button className="mt-4 w-full py-2 rounded-lg font-semibold bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-md hover:opacity-90">
-                    <Link to={`/holytours-details/${pkg.id}`}>See Details</Link>
-                  </button>
+                <div className="w-full flex justify-center">
+                  <Link
+                    to={`/holytours-details/${pkg.id}`}
+                    className="w-full text-center cursor-pointer mt-7 py-2 px-6 rounded-full font-semibold bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-md hover:opacity-90"
+                  >
+                    See Details
+                  </Link>
+                </div>
                 </div>
               </div>
             ))

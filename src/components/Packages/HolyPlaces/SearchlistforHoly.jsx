@@ -9,11 +9,9 @@ export default function HolyPlacesSearch({ onSearch }) {
     const value = e.target.value;
     setSearch(value);
 
-    // parent ko query bhejna
-    onSearch(value);
-
     if (value.trim() === "") {
       setSuggestion([]);
+      onSearch(""); // 🔹 clear filters → show all
       return;
     }
 
@@ -29,12 +27,18 @@ export default function HolyPlacesSearch({ onSearch }) {
   const handleSearchClick = (item) => {
     setSearch(item.location);
     setSuggestion([]);
-    onSearch(item.location); // 🔹 parent ko exact location bhej do
+    onSearch(item.location); // 🔹 filter by clicked suggestion
   };
 
   const handleKeyDown = (e) => {
-    if (e.key === "Enter" && suggestion.length > 0) {
-      handleSearchClick(suggestion[0]);
+    if (e.key === "Enter") {
+      if (search.trim() === "") {
+        onSearch(""); // 🔹 blank → clear filters
+      } else if (suggestion.length > 0) {
+        handleSearchClick(suggestion[0]); // 🔹 pick first suggestion
+      } else {
+        onSearch(search); // 🔹 search whatever user typed
+      }
     }
   };
 

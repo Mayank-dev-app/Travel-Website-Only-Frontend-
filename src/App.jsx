@@ -14,6 +14,7 @@ import HolyPlaces from "./components/Packages/HolyPlaces/HolyPlaces";
 import AdventureTours from "./components/Packages/AdventurePlaces/AdventurePlaces";
 import HolyToursDetails from "./components/Packages/HolyPlaces/TourDetails";
 import AdventureToursDetails from "./components/Packages/AdventurePlaces/AdventureToursDetail";
+import { TravelToursDetails } from "./components/Global/TravelTourList";
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
     return (
       <>
         <Navbar />
-        <Outlet /> 
+        <Outlet />
         <Footer />
       </>
     );
@@ -30,19 +31,20 @@ function App() {
   return (
     <>
       <Routes>
-        {/* Tours Details */}
-        <Route path="/holytours-details/:id" element={<HolyToursDetails />} />
-        <Route path="/adventure-details/:id" element={ <AdventureToursDetails />} /> 
-
         <Route element={<Layout />}>
           {/* Main Pages */}
           <Route path="/" element={<HomePage />} />
           <Route path="/aboutus" element={<Aboutus />} />
           <Route path="/holy-places/:locatin" element={<HolyPlaces />} />
           <Route path="/holy-places" element={<HolyPlaces />} />
-          <Route path ="/adventure/:location" element ={<AdventureTours />} />
-          <Route path ="/adventure" element ={<AdventureTours />} />
+          <Route path="/adventure/:location" element={<AdventureTours />} />
+          <Route path="/adventure" element={<AdventureTours />} />
           <Route path="/contact" element={<Contact />} />
+
+          {/* Tours Details */}
+          <Route path="/popular-tour-details/:id" element={<TravelToursDetails />} />
+          <Route path="/holytours-details/:id" element={<HolyToursDetails />} />
+          <Route path="/adventure-details/:id" element={<AdventureToursDetails />} />
         </Route>
 
         <Route path="/booktour" element={<BookingSystem />} />
